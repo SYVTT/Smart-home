@@ -1,0 +1,445 @@
+functions:
+  'ON':
+    aliases:
+      - włącz
+      - załącz
+      - zapal
+      - uruchom
+    placeholder: no
+    output: on {id}
+  'OFF':
+    aliases:
+      - wyłącz
+      - zgaś
+    placeholder: no
+    output: off {id}
+  SET:
+    aliases:
+      - ustaw
+      - zmień
+    placeholder: no
+    output: set {id}
+  SET_CHANNEL:
+    aliases:
+      - zmień kanał na
+      - ustaw kanał na
+    placeholder: yes
+    output: set {id} ch {N}
+  SET_CHANNEL_NEXT:
+    aliases:
+      - zmień kanał na następny
+      - ustaw kanał na następny
+      - następny
+    placeholder: no
+    output: set {id} ch next
+  SET_CHANNEL_PREV:
+    aliases:
+      - zmień kanał na poprzedni
+      - ustaw kanał na poprzedni
+      - poprzedni
+    placeholder: no
+    output: set {id} ch prev
+  SET_VOLUME:
+    aliases:
+      - ustaw głośność na
+      - zmień głośność na
+    placeholder: yes
+    output: set {id} vol {N}
+  SET_VOLUME_UP:
+    aliases:
+      - podgłośnij
+      - zwiększ głośność
+    placeholder: no
+    output: set {id} vol up
+  SET_VOLUME_DOWN:
+    aliases:
+      - ścisz
+      - zmniejsz głośność
+    placeholder: no
+    output: set {id} vol down
+  SET_COLD:
+    aliases:
+      - ustaw barwę zimną
+    placeholder: no
+    output: set {id} temp cold
+  SET_WARM:
+    aliases:
+      - ustaw barwę ciepłą
+    placeholder: no
+    output: set {id} temp warm
+  UP:
+    aliases:
+      - do góry
+      - w górę
+    placeholder: no
+    output: up {id}
+  DOWN:
+    aliases:
+      - do dołu
+      - w dół
+    placeholder: no
+    output: down {id}
+  STOP:
+    aliases:
+      - zatrzymaj
+      - wstrzymaj
+    placeholder: no
+    output: stop {id}
+
+
+
+device_types:
+  LIGHT:
+    type: LIGHT
+    functions:
+      - 'ON'
+      - 'OFF'
+    aliases:
+      - lampa
+      - światło
+      - oświetlenie
+  RADIO:
+    type: RADIO
+    functions:
+      - 'ON'
+      - 'OFF'
+      - SET_CHANNEL
+      - SET_CHANNEL_NEXT
+      - SET_CHANNEL_PREV
+      - SET_VOLUME
+      - SET_VOLUME_UP
+      - SET_VOLUME_DOWN
+    aliases:
+      - radio
+      - radioodbiornik
+  TV:
+    type: TV
+    functions:
+      - 'ON'
+      - 'OFF'
+      - SET_CHANNEL
+      - SET_CHANNEL_NEXT
+      - SET_CHANNEL_PREV
+      - SET_VOLUME
+      - SET_VOLUME_UP
+      - SET_VOLUME_DOWN
+    aliases:
+      - telewizor
+      - telewizja
+  COMPUTER:
+    type: COMPUTER
+    functions:
+      - 'ON'
+      - 'OFF'
+    aliases:
+      - komputer
+      - komp
+  MONITOR:
+    type: MONITOR
+    functions:
+      - 'ON'
+      - 'OFF'
+    aliases:
+      - monitor
+      - ekran
+  COLD_WARM_LAMP:
+    type: COLD_WARM_LAMP
+    functions:
+      - 'ON'
+      - 'OFF'
+      - SET_COLD
+      - SET_WARM
+    aliases:
+      - lampa
+      - oświetlenie
+      - światło
+  BR_LAMP:
+    type: BR_LAMP
+    functions:
+      - 'ON'
+      - 'OFF'
+      - SET
+    aliases:
+      - lampa
+      - oświetlenie
+      - światło
+  VENTILATOR:
+    type: VENTILATOR
+    functions:
+      - 'ON'
+      - 'OFF'
+    aliases:
+      - wentylator
+  HEATING:
+    type: HEATING
+    functions:
+      - 'ON'
+      - 'OFF'
+    aliases:
+      - ogrzewanie
+  BLINDS:
+    type: BLINDS
+    functions:
+      - UP
+      - DOWN
+      - STOP
+    aliases:
+      - rolety
+
+
+devices:
+  A1:
+    type: LIGHT
+    id: A1
+    aliases:
+      - górne
+      - główne
+  A2:
+    type: LIGHT
+    id: A2
+    aliases:
+      - biurka
+  A3:
+    type: RADIO
+    id: A3
+  A4:
+    type: COMPUTER
+    id: A4
+  A5:
+    type: MONITOR
+    id: A5
+  A6:
+    type: LIGHT
+    id: A6
+    aliases:
+      - górne
+      - główne
+  A7:
+    type: COLD_WARM_LAMP
+    id: A7
+    aliases:
+      - ławą
+  A8:
+    type: LIGHT
+    id: A8
+    aliases:
+      - lewa
+  A9:
+    type: LIGHT
+    id: A9
+    aliases:
+      - prawa
+  A10:
+    type: TV
+    id: A10
+  A11:
+    type: LIGHT
+    id: A11
+    aliases:
+      - telewizorem
+  A12:
+    type: LIGHT
+    id: A12
+    aliases:
+      - całe
+      - wszystkie
+  B1:
+    type: LIGHT
+    id: B1
+    aliases:
+      - górne
+      - główne
+  B2:
+    type: LIGHT
+    id: B2
+    aliases:
+      - lewa
+  B3:
+    type: LIGHT
+    id: B3
+    aliases:
+      - prawa
+  B4:
+    type: BR_LAMP
+    id: B4
+  B5:
+    type: TV
+    id: B5
+  B6:
+    type: LIGHT
+    id: B6
+    aliases:
+      - telewizorem
+  B7:
+    type: LIGHT
+    id: B7
+    aliases:
+      - całe
+      - wszystkie
+  C1:
+    type: LIGHT
+    id: C1
+    aliases:
+      - górne
+      - główne
+  C2:
+    type: LIGHT
+    id: C2
+    aliases:
+      - lustrem
+  C3:
+    type: VENTILATOR
+    id: C3
+  C4:
+    type: HEATING
+    id: C4
+  C5:
+    type: LIGHT
+    id: C5
+    aliases:
+      - całe
+      - wszystkie
+  D1:
+    type: LIGHT
+    id: D1
+    aliases:
+      - górne
+      - główne
+  D2:
+    type: LIGHT
+    id: D2
+    aliases:
+      - lewa
+  D3:
+    type: LIGHT
+    id: D3
+    aliases:
+      - prawa
+  D4:
+    type: LIGHT
+    id: D4
+    aliases:
+      - całe
+      - wszystkie
+  D5:
+    type: BLINDS
+    id: D5
+  E1:
+    type: LIGHT
+    id: E1
+    aliases:
+      - górne
+      - główne
+  E2:
+    type: LIGHT
+    id: E2
+    aliases:
+      - szafkami
+  E3:
+    type: LIGHT
+    id: E3
+    aliases:
+      - szafkami
+  E4:
+    type: LIGHT
+    id: E4
+    aliases:
+      - okapu
+  E6:
+    type: VENTILATOR
+    id: E5
+  E7:
+    type: LIGHT
+    id: E7
+    aliases:
+      - całe
+      - wszystkie
+
+
+rooms:
+  - ROOM_1:
+      aliases:
+        - poddasze sekcja pierwsza
+        - poddasze część pierwsza
+        - strych sekcja pierwsza
+        - strych część pierwsza
+      devices:
+        - A1
+        - A2
+        - A3
+        - A4
+        - A5
+  - ROOM_2:
+      aliases:
+        - poddasze sekcja druga
+        - poddasze część druga
+        - strych sekcja druga
+        - strych część druga
+      devices:
+        - A6
+        - A7
+        - A8
+        - A9
+        - A10
+        - A11
+  - ROOM_3:
+      aliases:
+        - poddasze
+        - strych
+      devices:
+        - A12
+        - A2
+        - A3
+        - A4
+        - A5
+        - A6
+        - A7
+        - A8
+        - A9
+        - A10
+        - A11
+  - ROOM_4:
+      aliases:
+        - sypialnia
+        - pokój sypialny
+      devices:
+        - B1
+        - B2
+        - B3
+        - B4
+        - B5
+        - B6
+        - B7
+  - ROOM_5:
+      aliases:
+        - łazienka
+        - toaleta
+      devices:
+        - C1
+        - C2
+        - C3
+        - C4
+        - C5
+  - ROOM_6:
+      aliases:
+        - salon
+        - duży pokój
+        - pokój dzienny
+        - pokój gościnny
+      devices:
+        - D4
+        - D1
+        - D2
+        - D3
+        - D5
+  - ROOM_7:
+      aliases:
+        - kuchnia
+        - jadalnia
+      devices:
+        - E1
+        - E2
+        - E3
+        - E4
+        - E6
+        - E7
