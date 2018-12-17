@@ -121,6 +121,10 @@ device_types:
     functions:
       - 'ON'
       - 'OFF'
+      - SET_COLOR
+      - SET_COLD
+      - SET_WARM
+      - SET_BRIGHTNESS
     aliases:
       - lampa
       - światło
@@ -169,37 +173,6 @@ device_types:
     aliases:
       - monitor
       - ekran
-  COLD_WARM_LAMP:
-    type: COLD_WARM_LAMP
-    functions:
-      - 'ON'
-      - 'OFF'
-      - SET_COLD
-      - SET_WARM
-    aliases:
-      - lampa
-      - oświetlenie
-      - światło
-  BR_LAMP:
-    type: BR_LAMP
-    functions:
-      - 'ON'
-      - 'OFF'
-      - SET_BRIGHTNESS
-    aliases:
-      - lampa
-      - oświetlenie
-      - światło
-  COLOR_LAMP:
-    type: COLOR_LAMP
-    functions:
-      - 'ON'
-      - 'OFF'
-      - SET_COLOR
-    aliases:
-      - lampa
-      - oświetlenie
-      - światło
   VENTILATOR:
     type: VENTILATOR
     functions:
@@ -263,7 +236,7 @@ devices:
       - górne
       - główne
   A7:
-    type: COLD_WARM_LAMP
+    type: LIGHT
     id: A7
     aliases:
       - nad ławą
@@ -293,7 +266,7 @@ devices:
       - wszystkie
     default: true
   B1:
-    type: COLD_WARM_LAMP
+    type: LIGHT
     id: B1
     aliases:
       - górne
@@ -358,12 +331,12 @@ devices:
       - górne
       - główne
   D2:
-    type: COLOR_LAMP
+    type: LIGHT
     id: D2
     aliases:
       - lewa
   D3:
-    type: COLOR_LAMP
+    type: LIGHT
     id: D3
     aliases:
       - prawa
@@ -396,7 +369,7 @@ devices:
       - górne
       - główne
   E2:
-    type: BR_LAMP
+    type: LIGHT
     id: E2
     aliases:
       - nad szafkami

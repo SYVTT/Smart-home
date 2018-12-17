@@ -16,7 +16,6 @@ def parse_command(command, desc):
     if error:
         return device_type
     # print('device_type = ' + str(device_type))
-    #todo have to merge this to one function device type + id and if default then use it first
     error, device_id = get_device_id_catch(devices, devices_desc, device_type, words)
     if error:
         return device_id
