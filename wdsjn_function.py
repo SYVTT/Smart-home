@@ -88,11 +88,15 @@ def get_device_id(devices, devices_desc, device_type, words, threshold=0.65):
                     elif alias_sum == max_sum and current_len < max_len:
                         max_len = current_len
                         max_id = device
-                if max_id is None:
+                    elif alias_sum == max_sum and 'default' in device_desc and device_desc['default']:
+                        max_sum = 0
+                        max_len = 0
+                        max_id = device
+                if max_id is None or ('default' in device_desc and device_desc['default']):
                     max_id = device
                     max_sum = 0
                     max_len = 0
-            elif max_id is None:
+            elif max_id is None or ('default' in device_desc and device_desc['default']):
                 max_id = device
                 max_sum = 0
                 max_len = 0

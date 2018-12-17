@@ -425,7 +425,6 @@ rooms:
         - poddasze
         - strych
       devices:
-        - A12
         - A2
         - A3
         - A4
@@ -436,6 +435,7 @@ rooms:
         - A9
         - A10
         - A11
+        - A12
   - ROOM_4:
       aliases:
         - sypialnia
