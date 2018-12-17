@@ -92,7 +92,7 @@ def get_device_id(devices, devices_desc, device_type, words, threshold=0.65):
                     max_id = device
                     max_sum = 0
                     max_len = 0
-            else:
+            elif max_id is None:
                 max_id = device
                 max_sum = 0
                 max_len = 0
