@@ -1,5 +1,4 @@
 import Levenshtein
-import yaml
 
 
 def parse_command(command, desc):
@@ -9,11 +8,25 @@ def parse_command(command, desc):
     rooms_desc = desc['rooms']
 
     words = command.split()
-    devices = find_devices_in_room(rooms_desc, words)
-    device_type = get_device_type(devices, devices_desc, device_types_desc, words)
-    device_id = get_device_id(devices, devices_desc, device_type, words)
-    func = get_fun(device_type, device_types_desc, functions_desc, words)
+    error, devices = find_devices_in_room_catch(rooms_desc, words)
+    if error:
+        return devices
+    # print('devices = ' + str(devices))
+    error, device_type = get_device_type_catch(devices, devices_desc, device_types_desc, words)
+    if error:
+        return device_type
+    # print('device_type = ' + str(device_type))
+    #todo have to merge this to one function device type + id and if default then use it first
+    error, device_id = get_device_id_catch(devices, devices_desc, device_type, words)
+    if error:
+        return device_id
+    # print('device_id = ' + str(device_id))
+    error, func = get_fun_catch(device_type, device_types_desc, functions_desc, words)
+    if error:
+        return func
+    # print('func = ' + str(func))
     output = functions_desc[func]['output']
+    # print('output = ' + str(output))
     result = output.replace('{id}', device_id)
 
     return result
@@ -43,6 +56,13 @@ def get_fun(device_type, device_types_desc, functions_desc, words, threshold=0.9
                 max_fun = fun
 
     return max_fun
+
+
+def get_fun_catch(device_type, device_types_desc, functions_desc, words, threshold=0.95):
+    try:
+        return False, get_fun(device_type, device_types_desc, functions_desc, words, threshold)
+    except:
+        return True, 'can not find function'
 
 
 def get_device_id(devices, devices_desc, device_type, words, threshold=0.65):
@@ -81,6 +101,13 @@ def get_device_id(devices, devices_desc, device_type, words, threshold=0.65):
     return max_id
 
 
+def get_device_id_catch(devices, devices_desc, device_type, words, threshold=0.65):
+    try:
+        return False, get_device_id(devices, devices_desc, device_type, words, threshold)
+    except:
+        return True, 'can not find device'
+
+
 def get_device_type(devices, devices_desc, device_types_desc, words, threshold=0.65):
     possible_types = set([devices_desc[device]['type'] for device in devices])
 
@@ -108,6 +135,13 @@ def get_device_type(devices, devices_desc, device_types_desc, words, threshold=0
     return max_type
 
 
+def get_device_type_catch(devices, devices_desc, device_types_desc, words, threshold=0.65):
+    try:
+        return False, get_device_type(devices, devices_desc, device_types_desc, words, threshold)
+    except:
+        return True, 'can not find device type'
+
+
 def find_devices_in_room(rooms, words, threshold=0.65):
     max_sum = 0
     max_len = 0
@@ -129,5 +163,11 @@ def find_devices_in_room(rooms, words, threshold=0.65):
                 elif alias_sum == max_sum and current_len < max_len:
                     max_len = current_len
                     max_v = v
-
     return max_v['devices']
+
+
+def find_devices_in_room_catch(rooms, words, threshold=0.65):
+    try:
+        return False, find_devices_in_room(rooms, words, threshold)
+    except:
+        return True, 'can not find room'

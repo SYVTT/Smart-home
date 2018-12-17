@@ -230,6 +230,9 @@ device_types:
       - 'ON'
       - 'OFF'
       - SET_ALARM
+    aliases:
+      - budzik
+      - zegarek
 
 
 devices:
@@ -288,6 +291,7 @@ devices:
     aliases:
       - całe
       - wszystkie
+    default: true
   B1:
     type: COLD_WARM_LAMP
     id: B1
