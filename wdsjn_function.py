@@ -1,4 +1,5 @@
 import Levenshtein
+import re
 
 
 def parse_command(command, desc):
@@ -24,9 +25,16 @@ def parse_command(command, desc):
     if error:
         return func
     # print('func = ' + str(func))
-    output = functions_desc[func]['output']
-    # print('output = ' + str(output))
-    result = output.replace('{id}', device_id)
+
+    try:
+        output = functions_desc[func]['output']
+        result = output.replace('{id}', device_id)
+        if 'placeholder' in functions_desc[func] and functions_desc[func]['placeholder']:
+            regex = functions_desc[func]['regex']
+            placeholder = re.findall(regex, command)[0]
+            result = result.replace('{placeholder}', placeholder)
+    except:
+        return 'incorrect yaml structure - placeholder'
 
     return result
 

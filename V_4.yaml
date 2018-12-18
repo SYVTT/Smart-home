@@ -18,7 +18,8 @@ functions:
       - ustaw kolor na
       - zmień kolor na
     placeholder: yes
-    output: set {id} color {color}
+    regex: niebieski|czerwony|zielony|żółty
+    output: set {id} color {placeholder}
   SET:
     aliases:
       - ustaw
@@ -30,7 +31,8 @@ functions:
       - zmień kanał na
       - ustaw kanał na
     placeholder: yes
-    output: set {id} ch {N}
+    regex: \d+
+    output: set {id} ch {placeholder}
   FAST:
     aliases:
       - szybko
@@ -61,7 +63,8 @@ functions:
       - ustaw głośność na
       - zmień głośność na
     placeholder: yes
-    output: set {id} vol {N}
+    regex: \d+
+    output: set {id} vol {placeholder}
   SET_VOLUME_UP:
     aliases:
       - podgłośnij
@@ -106,12 +109,14 @@ functions:
     aliases:
       - ustaw alarm na
     placeholder: yes
-    output: set {id} time {time}
+    regex: \d\d:\d\d
+    output: set {id} time {placeholder}
   SET_BRIGHTNESS:
     aliases:
       - ustaw jasność na
     placeholder: yes
-    output: set {id} bright {bright}
+    regex: \d+
+    output: set {id} bright {placeholder}
 
 
 
@@ -157,6 +162,7 @@ device_types:
     aliases:
       - telewizor
       - telewizja
+      - TV
   COMPUTER:
     type: COMPUTER
     functions:
