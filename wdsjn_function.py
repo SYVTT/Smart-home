@@ -8,6 +8,8 @@ def parse_command(command, desc):
     devices_desc = desc['devices']
     rooms_desc = desc['rooms']
 
+    command = command.lower()
+
     words = command.split()
     error, devices = find_devices_in_room_catch(rooms_desc, words)
     if error:

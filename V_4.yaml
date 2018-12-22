@@ -5,6 +5,7 @@ functions:
       - załącz
       - zapal
       - uruchom
+      - start
     placeholder: no
     output: on {id}
   'OFF':
@@ -162,7 +163,7 @@ device_types:
     aliases:
       - telewizor
       - telewizja
-      - TV
+      - tv
   COMPUTER:
     type: COMPUTER
     functions:
@@ -368,6 +369,7 @@ devices:
     aliases:
       - razem
       - wszystkie
+    default: true
   E1:
     type: LIGHT
     id: E1

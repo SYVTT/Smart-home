@@ -11,8 +11,9 @@ test_cases = [
     ('zgaś światło w salonie', 'off D4'),
     ('wyłącz wentlator w kuchni', 'off E6'),
     ('włącz całe oświetlenie w kuchni', 'on E7'),
-    ('ustaw budzić w sypialni na 13:23', 'set B8 time 13:23'),
-    ('ustaw kanał TV w sypialni na 16', 'set B5 ch 16')
+    ('ustaw budzik w sypialni na 13:00', 'set B8 time 13:00'),
+    ('ustaw kanał TV w sypialni na 16', 'set B5 ch 16'),
+    ('salon lampa prawa załącz', 'on D3')
 ]
 
 formal_language = yaml.load(open('V_4.yaml'))

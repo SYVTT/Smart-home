@@ -1,0 +1,112 @@
+<< Załącz oświetlenie górne na poddaszu
+>> on A12
+<< Wyłącz oświetlenie na poddaszu w sekcji pierwszej
+>> off A1
+<< on
+>> can not find room
+<< Wyłącz oświetlenie w sekcji pierwszej Górne na poddaszu
+>> off A1
+<< Wyłącz całe oświetlenie na poddaszu
+>> off A12
+<< Załącz monitor
+>> can not find room
+<< Załącz radio na poddaszu
+>> on A3
+<< Wyłącz radio na poddaszu
+>> off A3
+<< radio na poddaszu kanał trzeci
+>> incorrect yaml structure - placeholder
+<< radio na poddaszu Kanał 3
+>> set A3 ch 3
+<< Załącz oświetlenie za telewizorem na poddaszu
+>> on A12
+<< Załącz oświetlenie za telewizorem na poddaszu w sekcji drugiej
+>> on A11
+<< Załącz telewizor na poddaszu
+>> on A10
+<< off
+>> can not find room
+<< telewizor na poddaszu Kanał 6
+>> set A10 ch 6
+<< telewizor na poddaszu głośność 7
+>> set A10 vol 7
+<< Wyłącz całe oświetlenie na poddaszu
+>> off A12
+<< Załącz oświetlenie górne w sypialni
+>> on B1
+<< Załącz oświetlenie na suficie w sypialni
+>> on B1
+<< Ustaw barwa ciepłą oświetlenia górnego w sypialni
+>> set B1 temp warm
+<< sypialnia oświetlenie górne barwa zimna
+>> incorrect yaml structure - placeholder
+<< Załącz lampę prawą i lewą w sypialni
+>> on B2
+<< Załącz lampy w sypialni
+>> on B1
+<< Wyłącz całe oświetlenie w sypialni
+>> off B7
+<< Załącz oświetlenie za telewizorem w sypialni
+>> on B6
+<< Załącz lampę za telewizorem w sypialni
+>> on B6
+<< Załącz oświetlenie górne w salonie
+>> on D1
+<< lampa lewa w sypialni
+>> incorrect yaml structure - placeholder
+<< salon lampa lewa kolor niebieski
+>> set D2 color niebieski
+<< lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo
+>> set B2 color czerwony
+<< Załącz budzik w sypialni
+>> on B8
+<< budzik w sypialni godzina 6:00 rano
+>> incorrect yaml structure - placeholder
+<< budzik w sypialni 6:00
+>> incorrect yaml structure - placeholder
+<< budzik w sypialni godzina 0600
+>> incorrect yaml structure - placeholder
+<< budzik w sypialni godzina 13:00
+>> incorrect yaml structure - placeholder
+<< budzik w sypialni budzenie 6:00
+>> incorrect yaml structure - placeholder
+<< budzik w sypialni ustaw 7:00
+>> incorrect yaml structure - placeholder
+<< budzik w sypialni 20:00
+>> incorrect yaml structure - placeholder
+<< salon roleta lewa dół
+>> can not find function
+<< salon roleta lewa stop
+>> can not find function
+<< roleta lewa w górę
+>> can not find function
+<< Zatrzymaj roletę lewą w sypialni
+>> can not find function
+<< Zasłoń rolety w sypialni
+>> can not find function
+<< roleta prawa w sypialni w górę
+>> can not find function
+<< roleta lewa w salonie w dół
+>> can not find function
+<< rolety w sypialni w górę
+>> can not find function
+<< rolety w salonie w górę
+>> up D5
+<< Opuść zasłony w sypialni w salonie dobra to jeszcze raz kasujemy
+>> can not find function
+<< Opuść rolety w salonie
+>> up D5
+<< Opuść rolety w salonie
+>> up D7
+<< w salonie w górę
+>> can not find function
+<< rolety w salonie w górę
+>> up D7
+<< rolety w salonie w dół
+>> down D7
+<< Zatrzymaj rolety w salonie
+>> stop D7
+<< Załóż oświetlenie górne w kuchni
+>> incorrect yaml structure - placeholder
+<< Wyłącz oświetlenie górne w kuchni
+>> off E1
