@@ -36,7 +36,8 @@ def parse_command(command, desc):
             placeholder = re.findall(regex, command)[0]
             result = result.replace('{placeholder}', placeholder)
     except:
-        return 'incorrect yaml structure - placeholder'
+        # return 'incorrect yaml structure - placeholder'
+        return 'error'
 
     return result
 
@@ -71,7 +72,8 @@ def get_fun_catch(device_type, device_types_desc, functions_desc, words, thresho
     try:
         return False, get_fun(device_type, device_types_desc, functions_desc, words, threshold)
     except:
-        return True, 'can not find function'
+        # return True, 'can not find function'
+        return True, 'error'
 
 
 def get_device_id(devices, devices_desc, device_type, words, threshold=0.65):
@@ -118,7 +120,8 @@ def get_device_id_catch(devices, devices_desc, device_type, words, threshold=0.6
     try:
         return False, get_device_id(devices, devices_desc, device_type, words, threshold)
     except:
-        return True, 'can not find device'
+        # return True, 'can not find device'
+        return True, 'error'
 
 
 def get_device_type(devices, devices_desc, device_types_desc, words, threshold=0.65):
@@ -152,7 +155,8 @@ def get_device_type_catch(devices, devices_desc, device_types_desc, words, thres
     try:
         return False, get_device_type(devices, devices_desc, device_types_desc, words, threshold)
     except:
-        return True, 'can not find device type'
+        # return True, 'can not find device type'
+        return True, 'error'
 
 
 def find_devices_in_room(rooms, words, threshold=0.65):
@@ -183,4 +187,5 @@ def find_devices_in_room_catch(rooms, words, threshold=0.65):
     try:
         return False, find_devices_in_room(rooms, words, threshold)
     except:
-        return True, 'can not find room'
+        # return True, 'can not find room'
+        return True, 'error'

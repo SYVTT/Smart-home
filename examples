@@ -1,112 +1,82 @@
-<< Załącz oświetlenie górne na poddaszu
->> on A12
-<< Wyłącz oświetlenie na poddaszu w sekcji pierwszej
->> off A1
-<< on
->> can not find room
-<< Wyłącz oświetlenie w sekcji pierwszej Górne na poddaszu
->> off A1
-<< Wyłącz całe oświetlenie na poddaszu
->> off A12
-<< Załącz monitor
->> can not find room
-<< Załącz radio na poddaszu
->> on A3
-<< Wyłącz radio na poddaszu
->> off A3
-<< radio na poddaszu kanał trzeci
->> incorrect yaml structure - placeholder
-<< radio na poddaszu Kanał 3
->> set A3 ch 3
-<< Załącz oświetlenie za telewizorem na poddaszu
->> on A12
-<< Załącz oświetlenie za telewizorem na poddaszu w sekcji drugiej
->> on A11
-<< Załącz telewizor na poddaszu
->> on A10
-<< off
->> can not find room
-<< telewizor na poddaszu Kanał 6
->> set A10 ch 6
-<< telewizor na poddaszu głośność 7
->> set A10 vol 7
-<< Wyłącz całe oświetlenie na poddaszu
->> off A12
-<< Załącz oświetlenie górne w sypialni
->> on B1
-<< Załącz oświetlenie na suficie w sypialni
->> on B1
-<< Ustaw barwa ciepłą oświetlenia górnego w sypialni
->> set B1 temp warm
-<< sypialnia oświetlenie górne barwa zimna
->> incorrect yaml structure - placeholder
-<< Załącz lampę prawą i lewą w sypialni
->> on B2
-<< Załącz lampy w sypialni
->> on B1
-<< Wyłącz całe oświetlenie w sypialni
->> off B7
-<< Załącz oświetlenie za telewizorem w sypialni
->> on B6
-<< Załącz lampę za telewizorem w sypialni
->> on B6
-<< Załącz oświetlenie górne w salonie
->> on D1
-<< lampa lewa w sypialni
->> incorrect yaml structure - placeholder
-<< salon lampa lewa kolor niebieski
->> set D2 color niebieski
-<< lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo
->> set B2 color czerwony
-<< Załącz budzik w sypialni
->> on B8
-<< budzik w sypialni godzina 6:00 rano
->> incorrect yaml structure - placeholder
-<< budzik w sypialni 6:00
->> incorrect yaml structure - placeholder
-<< budzik w sypialni godzina 0600
->> incorrect yaml structure - placeholder
-<< budzik w sypialni godzina 13:00
->> incorrect yaml structure - placeholder
-<< budzik w sypialni budzenie 6:00
->> incorrect yaml structure - placeholder
-<< budzik w sypialni ustaw 7:00
->> incorrect yaml structure - placeholder
-<< budzik w sypialni 20:00
->> incorrect yaml structure - placeholder
-<< salon roleta lewa dół
->> can not find function
-<< salon roleta lewa stop
->> can not find function
-<< roleta lewa w górę
->> can not find function
-<< Zatrzymaj roletę lewą w sypialni
->> can not find function
-<< Zasłoń rolety w sypialni
->> can not find function
-<< roleta prawa w sypialni w górę
->> can not find function
-<< roleta lewa w salonie w dół
->> can not find function
-<< rolety w sypialni w górę
->> can not find function
-<< rolety w salonie w górę
->> up D5
-<< Opuść zasłony w sypialni w salonie dobra to jeszcze raz kasujemy
->> can not find function
-<< Opuść rolety w salonie
->> up D5
-<< Opuść rolety w salonie
->> up D7
-<< w salonie w górę
->> can not find function
-<< rolety w salonie w górę
->> up D7
-<< rolety w salonie w dół
->> down D7
-<< Zatrzymaj rolety w salonie
->> stop D7
-<< Załóż oświetlenie górne w kuchni
->> incorrect yaml structure - placeholder
-<< Wyłącz oświetlenie górne w kuchni
->> off E1
+('Załącz', 'on D3'),
+('wyłącz', 'on D3'),
+('Załącz światło w kuchni', 'on D3'),
+('Załącz oświetlenie okapu', 'on D3'),
+('Załóż oświetlenie okapu w kuchni', 'on D3'),
+('Wyłącz oświetlenie w kuchni', 'on D3'),
+('Załącz oświetlenie górne w salonie', 'on D3'),
+('Załącz lampę lewą w salonie', 'on D3'),
+('salon lampa prawa Załącz co wy na to', 'on D3'),
+('Załącz lampę prawą w salonie', 'on D3'),
+('Wyłącz oświetlenie w salonie', 'on D3'),
+('Załącz oświetlenie górne w kuchni', 'on D3'),
+('kuchnia oświetlenie okapu Załącz', 'on D3'),
+('Załącz wentylator w kuchni', 'on D3'),
+('Załącz wentylator kuchni', 'on D3'),
+('Załącz wentylator okapu', 'on D3'),
+('Załącz wentylator okapu w kuchni', 'on D3'),
+('Załącz okap w kuchni', 'on D3'),
+('Załącz oświetlenie okapu w kuchni', 'on D3'),
+('kuchnia Załącz oświetlenie pod szafkami', 'on D3'),
+('Wyłącz całe oświetlenie w kuchni', 'on D3'),
+('Załącz oświetlenie górne w łazience', 'on D3'),
+('Wyłącz oświetlenie górne w łazience', 'on D3'),
+('Załącz oświetlenie na suficie w łazience', 'on D3'),
+('Załącz dmuchawę w łazience', 'on D3'),
+('Załącz wentylator w łazience', 'on D3'),
+('Wyłącz wentylator w łazience', 'on D3'),
+('wentylator w łazience start', 'on D3'),
+('Załącz oświetlenie górne na poddaszu', 'on D3'),
+('Wyłącz oświetlenie na poddaszu w sekcji pierwszej', 'on D3'),
+('on', 'on D3'),
+('Wyłącz oświetlenie w sekcji pierwszej Górne na poddaszu', 'on D3'),
+('Wyłącz całe oświetlenie na poddaszu', 'on D3'),
+('Załącz monitor', 'on D3'),
+('Załącz radio na poddaszu', 'on D3'),
+('Wyłącz radio na poddaszu', 'on D3'),
+('radio na poddaszu kanał trzeci', 'on D3'),
+('radio na poddaszu Kanał 3', 'on D3'),
+('Załącz oświetlenie za telewizorem na poddaszu', 'on D3'),
+('Załącz oświetlenie za telewizorem na poddaszu w sekcji drugiej', 'on D3'),
+('Załącz telewizor na poddaszu', 'on D3'),
+('off', 'on D3'),
+('telewizor na poddaszu Kanał 6', 'on D3'),
+('telewizor na poddaszu głośność 7', 'on D3'),
+('Wyłącz całe oświetlenie na poddaszu', 'on D3'),
+('Załącz oświetlenie górne w sypialni', 'on D3'),
+('Załącz oświetlenie na suficie w sypialni', 'on D3'),
+('Ustaw barwa ciepłą oświetlenia górnego w sypialni', 'on D3'),
+('sypialnia oświetlenie górne barwa zimna', 'on D3'),
+('Załącz lampę prawą i lewą w sypialni', 'on D3'),
+('Załącz lampy w sypialni', 'on D3'),
+('Wyłącz całe oświetlenie w sypialni', 'on D3'),
+('Załącz oświetlenie za telewizorem w sypialni', 'on D3'),
+('Załącz lampę za telewizorem w sypialni', 'on D3'),
+('Załącz oświetlenie górne w salonie', 'on D3'),
+('lampa lewa w sypialni', 'on D3'),
+('salon lampa lewa kolor niebieski', 'on D3'),
+('lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo', 'on D3'),
+('Załącz budzik w sypialni', 'on D3'),
+('budzik w sypialni godzina 6:00 rano', 'on D3'),
+('budzik w sypialni 6:00', 'on D3'),
+('budzik w sypialni godzina 0600', 'on D3'),
+('budzik w sypialni godzina 13:00', 'on D3'),
+('budzik w sypialni budzenie 6:00', 'on D3'),
+('budzik w sypialni ustaw 7:00', 'on D3'),
+('budzik w sypialni 20:00', 'on D3'),
+('salon roleta lewa dół', 'on D3'),
+('salon roleta lewa stop', 'on D3'),
+('roleta lewa w górę', 'on D3'),
+('Zatrzymaj roletę lewą w sypialni', 'on D3'),
+('Zasłoń rolety w sypialni', 'on D3'),
+('roleta prawa w sypialni w górę', 'on D3'),
+('roleta lewa w salonie w dół', 'on D3'),
+('rolety w sypialni w górę', 'on D3'),
+('rolety w salonie w górę', 'on D3'),
+('Opuść zasłony w sypialni w salonie dobra to jeszcze raz kasujemy', 'on D3'),
+('Opuść rolety w salonie', 'on D3'),
+('Opuść rolety w salonie', 'on D3'),
+('w salonie w górę', 'on D3'),
+('rolety w salonie w górę', 'on D3'),
+('rolety w salonie w dół', 'on D3'),
+('Zatrzymaj rolety w salonie
