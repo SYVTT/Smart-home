@@ -71,46 +71,49 @@ functions:
       - podgłośnij
       - zwiększ głośność
     placeholder: no
-    output: set {id} vol up
+    output: vol_up {id}
   SET_VOLUME_DOWN:
     aliases:
       - ścisz
       - zmniejsz głośność
     placeholder: no
-    output: set {id} vol down
+    output: vol_down {id}
   SET_COLD:
     aliases:
       - ustaw barwę zimną
     placeholder: no
-    output: set {id} temp cold
+    output: cold {id}
   SET_WARM:
     aliases:
       - ustaw barwę ciepłą
     placeholder: no
-    output: set {id} temp warm
+    output: warm {id}
   UP:
     aliases:
       - do góry
       - w górę
+      - podnieś
     placeholder: no
     output: up {id}
   DOWN:
     aliases:
       - do dołu
       - w dół
+      - opuść
     placeholder: no
     output: down {id}
   STOP:
     aliases:
       - zatrzymaj
       - wstrzymaj
+      - stop
     placeholder: no
     output: stop {id}
   SET_ALARM:
     aliases:
       - ustaw alarm na
     placeholder: yes
-    regex: \d\d:\d\d
+    regex: \d\d:\d\d|\d:\d\d
     output: set {id} time {placeholder}
   SET_BRIGHTNESS:
     aliases:
@@ -189,6 +192,16 @@ device_types:
       - SLOW
     aliases:
       - wentylator
+  HOOD:
+    type: HOOD
+    functions:
+      - 'ON'
+      - 'OFF'
+      - FAST
+      - SLOW
+    aliases:
+      - wentylator okapu
+      - okap
   HEATING:
     type: HEATING
     functions:
@@ -196,6 +209,8 @@ device_types:
       - 'OFF'
     aliases:
       - ogrzewanie
+      - dmuchawa
+      - ocieplenie
   BLINDS:
     type: BLINDS
     functions:
@@ -222,6 +237,7 @@ devices:
     aliases:
       - górne
       - główne
+      - na suficie
   A2:
     type: LIGHT
     id: A2
@@ -242,6 +258,7 @@ devices:
     aliases:
       - górne
       - główne
+      - na suficie
   A7:
     type: LIGHT
     id: A7
@@ -278,6 +295,7 @@ devices:
     aliases:
       - górne
       - główne
+      - na suficie
   B2:
     type: LIGHT
     id: B2
@@ -291,6 +309,8 @@ devices:
   B4:
     type: LIGHT
     id: B4
+    aliases:
+      - lampa
   B5:
     type: TV
     id: B5
@@ -314,6 +334,7 @@ devices:
     aliases:
       - górne
       - główne
+      - na suficie
   C2:
     type: LIGHT
     id: C2
@@ -325,6 +346,8 @@ devices:
   C4:
     type: HEATING
     id: C4
+    aliases:
+      - podłogowe
   C5:
     type: LIGHT
     id: C5
@@ -337,6 +360,7 @@ devices:
     aliases:
       - górne
       - główne
+      - na suficie
   D2:
     type: LIGHT
     id: D2
@@ -376,6 +400,7 @@ devices:
     aliases:
       - górne
       - główne
+      - na suficie
   E2:
     type: LIGHT
     id: E2
@@ -391,9 +416,12 @@ devices:
     id: E4
     aliases:
       - okapu
+  E5:
+    type: HOOD
+    id: E5
   E6:
     type: VENTILATOR
-    id: E5
+    id: E6
   E7:
     type: LIGHT
     id: E7
@@ -490,5 +518,6 @@ rooms:
         - E2
         - E3
         - E4
+        - E5
         - E6
         - E7
