@@ -81,11 +81,13 @@ functions:
   SET_COLD:
     aliases:
       - ustaw barwę zimną
+      - barwa zimna
     placeholder: no
     output: cold {id}
   SET_WARM:
     aliases:
       - ustaw barwę ciepłą
+      - barwa ciepła
     placeholder: no
     output: warm {id}
   UP:
@@ -121,6 +123,13 @@ functions:
     placeholder: yes
     regex: \d+
     output: set {id} bright {placeholder}
+  TOGGLE:
+    aliases:
+      - przełącz
+      - zmień stan
+    placeholder: no
+    output: toggle {id}
+    default: true
 
 
 
@@ -134,10 +143,12 @@ device_types:
       - SET_COLD
       - SET_WARM
       - SET_BRIGHTNESS
+      - TOGGLE
     aliases:
       - lampa
       - światło
       - oświetlenie
+      - lampę
   RADIO:
     type: RADIO
     functions:

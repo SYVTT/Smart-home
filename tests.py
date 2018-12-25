@@ -19,14 +19,14 @@ test_cases = [
     ('wyłącz', 'error'),
     ('Załącz światło w kuchni', 'on E7'),
     ('Załącz oświetlenie okapu', 'error'),
-    ('Załóż oświetlenie okapu w kuchni', 'error'),
+    # if this should be toggle E4 or rather error?
+    ('Załóż oświetlenie okapu w kuchni', 'toggle E4'),
     ('Wyłącz oświetlenie w kuchni', 'off E7'),
     ('Załącz oświetlenie górne w salonie', 'on D1'),
     ('Załącz lampę lewą w salonie', 'on D2'),
     ('salon lampa prawa Załącz co wy na to', 'on D3'),
     ('Załącz lampę prawą w salonie', 'on D3'),
     ('Wyłącz oświetlenie w salonie', 'off D4'),
-    # TODO SOMETHING WRONG HERE
     ('Załącz oświetlenie górne w kuchni', 'on E1'),
     ('kuchnia oświetlenie okapu Załącz', 'on E4'),
     ('Załącz wentylator w kuchni', 'on E6'),
@@ -56,12 +56,10 @@ test_cases = [
     ('Załącz monitor', 'error'),
     ('Załącz radio na poddaszu', 'on A3'),
     ('Wyłącz radio na poddaszu', 'off A3'),
-    # wrong format
+    # wrong format (trzeci -> 3)
     ('radio na poddaszu kanał trzeci', 'error'),
     ('radio na poddaszu Kanał 3', 'set A3 ch 3'),
-    # todo fix function getting device type
     ('Załącz oświetlenie za telewizorem na poddaszu', 'on A11'),
-    # todo the same; sometimes it works
     ('Załącz oświetlenie za telewizorem na poddaszu w sekcji drugiej', 'on A11'),
 
     ('Załącz telewizor na poddaszu', 'on A10'),
@@ -72,45 +70,39 @@ test_cases = [
     ('Załącz oświetlenie górne w sypialni', 'on B1'),
     ('Załącz oświetlenie na suficie w sypialni', 'on B1'),
     ('Ustaw barwa ciepłą oświetlenia górnego w sypialni', 'warm B1'),
-    # todo? brak funkcji
-    ('sypialnia oświetlenie górne barwa zimna', 'error'),
+    # todo? brak funkcji (trivial function ??)
+    ('sypialnia oświetlenie górne barwa zimna', 'cold B1'),
     # todo? nie obsługujemy 'mergowania' - zwracana jest jedna funkcja
     ('Załącz lampę prawą i lewą w sypialni', 'on B3'),
-    # dunno if this is appropriate
+    # the same
     ('Załącz lampy w sypialni', 'on B4'),
     ('Wyłącz całe oświetlenie w sypialni', 'off B7'),
-    # todo funkcja pobierająca typ
     ('Załącz oświetlenie za telewizorem w sypialni', 'on B6'),
-    # ??
     ('Załącz lampę za telewizorem w sypialni', 'on B6'),
     ('Załącz oświetlenie górne w salonie', 'on D1'),
-    # todo change to toggle (if not found function then toggle)
+    # todo change to toggle (trivial function)
     ('lampa lewa w sypialni', 'toggle B2'),
     # color in polish?
     ('salon lampa lewa kolor niebieski', 'set D2 color niebieski'),
-    # what is this??
-    # todo which one lamp??
+    # turn on only one lamp
     ('lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo', 'set B2 color czerwony'),
     ('Załącz budzik w sypialni', 'on B8'),
-    # brak funkcjo
+    # lack of function
     ('budzik w sypialni godzina 6:00 rano', 'error'),
 
-    # todo brak funkcji!
+    # todo brak funkcji! you can enter something like trivial function
     ('budzik w sypialni 6:00', 'error'),
     ('budzik w sypialni godzina 0600', 'error'),
     ('budzik w sypialni godzina 13:00', 'error'),
     ('budzik w sypialni budzenie 6:00', 'error'),
     ('budzik w sypialni ustaw 7:00', 'set B8 time 7:00'),
     ('budzik w sypialni 20:00', 'error'),
-    # todo why this is not working??
     ('salon roleta lewa dół', 'down D5'),
-    # todo the same
     ('salon roleta lewa stop', 'stop D5'),
     ('roleta lewa w górę', 'error'),
     ('Zatrzymaj roletę lewą w sypialni', 'error'),
     ('Zasłoń rolety w sypialni', 'error'),
     ('roleta prawa w sypialni w górę', 'error'),
-    # todo
     ('roleta lewa w salonie w dół', 'down D5'),
     ('rolety w sypialni w górę', 'error'),
     ('rolety w salonie w górę', 'up D7'),

@@ -49,6 +49,10 @@ def get_fun(device_type, device_types_desc, functions_desc, words, threshold=0.9
     device_type_desc = device_types_desc[device_type]
     for fun in device_type_desc['functions']:
         fun_desc = functions_desc[fun]
+
+        if max_fun is None and 'default' in fun_desc and fun_desc['default']:
+            max_fun = fun
+
         for alias in fun_desc['aliases']:
             alias_sum = 0
             alias_words = alias.split()
