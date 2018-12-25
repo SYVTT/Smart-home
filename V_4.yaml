@@ -288,6 +288,7 @@ devices:
     aliases:
       - całe
       - wszystkie
+      - górne
     default: true
   B1:
     type: LIGHT
@@ -300,12 +301,12 @@ devices:
     type: LIGHT
     id: B2
     aliases:
-      - lewa
+      - lampa lewa
   B3:
     type: LIGHT
     id: B3
     aliases:
-      - prawa
+      - lampa prawa
   B4:
     type: LIGHT
     id: B4
@@ -318,7 +319,7 @@ devices:
     type: LIGHT
     id: B6
     aliases:
-      - telewizorem
+      - za telewizorem
   B7:
     type: LIGHT
     id: B7
@@ -428,6 +429,7 @@ devices:
     aliases:
       - całe
       - wszystkie
+    default: true
 
 
 rooms:

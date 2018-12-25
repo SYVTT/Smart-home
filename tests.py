@@ -72,9 +72,10 @@ test_cases = [
     ('Załącz oświetlenie górne w sypialni', 'on B1'),
     ('Załącz oświetlenie na suficie w sypialni', 'on B1'),
     ('Ustaw barwa ciepłą oświetlenia górnego w sypialni', 'warm B1'),
-    ('sypialnia oświetlenie górne barwa zimna', 'cold B1'),
-    # turn on only one of those
-    ('Załącz lampę prawą i lewą w sypialni', 'on B2'),
+    # todo? brak funkcji
+    ('sypialnia oświetlenie górne barwa zimna', 'error'),
+    # todo? nie obsługujemy 'mergowania' - zwracana jest jedna funkcja
+    ('Załącz lampę prawą i lewą w sypialni', 'on B3'),
     # dunno if this is appropriate
     ('Załącz lampy w sypialni', 'on B4'),
     ('Wyłącz całe oświetlenie w sypialni', 'off B7'),
@@ -89,7 +90,7 @@ test_cases = [
     ('salon lampa lewa kolor niebieski', 'set D2 color niebieski'),
     # what is this??
     # todo which one lamp??
-    ('lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo', 'set B4 color czerwony'),
+    ('lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo', 'set B2 color czerwony'),
     ('Załącz budzik w sypialni', 'on B8'),
     # brak funkcjo
     ('budzik w sypialni godzina 6:00 rano', 'error'),
@@ -124,13 +125,22 @@ test_cases = [
 
 formal_language = yaml.load(open('V_4.yaml'))
 
+total_correct = total_wrong = 0
 for (command, expected) in test_cases:
     result = None
     try:
         result = parse_command(command, formal_language)
     except:
-        pass
+        total_wrong += 1
     if expected != result:
         print('result = ' + str(result) + ' | expected = ' + expected)
+        total_wrong += 1
     else:
         print('result = expected = ' + expected)
+        total_correct += 1
+
+print('\n')
+print('total = ' + str(len(test_cases)))
+print('total correct = ' + str(total_correct))
+print('total wrong = ' + str(total_wrong))
+

@@ -56,7 +56,8 @@ def get_fun(device_type, device_types_desc, functions_desc, words, threshold=0.9
             for alias_word in alias_words:
                 for word in words:
                     rate = Levenshtein.ratio(alias_word, word)
-                    alias_sum += 1 if rate > threshold else 0
+                    # alias_sum += 1 if rate > threshold else 0
+                    alias_sum += rate if rate > threshold else 0
             if alias_sum > max_sum:
                 max_sum = alias_sum
                 max_len = current_len
@@ -64,7 +65,6 @@ def get_fun(device_type, device_types_desc, functions_desc, words, threshold=0.9
             elif alias_sum == max_sum and current_len < max_len:
                 max_len = current_len
                 max_fun = fun
-
     return max_fun
 
 
@@ -87,28 +87,42 @@ def get_device_id(devices, devices_desc, device_type, words, threshold=0.65):
             if 'aliases' in device_desc:
                 for alias in device_desc['aliases']:
                     alias_sum = 0
+                    alias_rate = 0
                     alias_words = alias.split()
                     current_len = len(alias_words)
                     for alias_word in alias_words:
                         for word in words:
                             rate = Levenshtein.ratio(alias_word, word)
-                            alias_sum += 1 if rate > threshold else 0
+                            alias_rate += 1 if rate > threshold else 0
+                            alias_sum += rate if rate > threshold else 0
+                    if alias_rate < current_len:
+                        alias_sum = 0
+                    # print('0 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                     if alias_sum > max_sum:
+                        # print('1 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                         max_sum = alias_sum
                         max_len = current_len
                         max_id = device
                     elif alias_sum == max_sum and current_len < max_len:
+                        # print('2 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                         max_len = current_len
                         max_id = device
                     elif alias_sum == max_sum and 'default' in device_desc and device_desc['default']:
+                        # print('3 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                         max_sum = 0
                         max_len = 0
                         max_id = device
-                if max_id is None or ('default' in device_desc and device_desc['default']):
-                    max_id = device
-                    max_sum = 0
-                    max_len = 0
-            elif max_id is None or ('default' in device_desc and device_desc['default']):
+                # todo if this is necessary?
+                # if max_id is None or ('default' in device_desc and device_desc['default']):
+                #     max_id = device
+                #     max_sum = 0
+                #     max_len = 0
+            # elif max_id is None or ('default' in device_desc and device_desc['default']):
+            # todo if this is necessary?
+            # if max_id is None or ('default' in device_desc and device_desc['default']):
+            # if max_id is None and ('default' in device_desc and device_desc['default']):
+            if max_id is None:
+                # print('4 ' + device)
                 max_id = device
                 max_sum = 0
                 max_len = 0
@@ -124,7 +138,7 @@ def get_device_id_catch(devices, devices_desc, device_type, words, threshold=0.6
         return True, 'error'
 
 
-def get_device_type(devices, devices_desc, device_types_desc, words, threshold=0.65):
+def get_device_type(devices, devices_desc, device_types_desc, words, threshold):
     possible_types = set([devices_desc[device]['type'] for device in devices])
 
     max_sum = 0
@@ -139,7 +153,8 @@ def get_device_type(devices, devices_desc, device_types_desc, words, threshold=0
             for alias_word in alias_words:
                 for word in words:
                     rate = Levenshtein.ratio(alias_word, word)
-                    alias_sum += 1 if rate > threshold else 0
+                    # alias_sum += 1 if rate > threshold else 0
+                    alias_sum += rate if rate > threshold else 0
             if alias_sum > max_sum:
                 max_sum = alias_sum
                 max_len = current_len
@@ -151,7 +166,7 @@ def get_device_type(devices, devices_desc, device_types_desc, words, threshold=0
     return max_type
 
 
-def get_device_type_catch(devices, devices_desc, device_types_desc, words, threshold=0.65):
+def get_device_type_catch(devices, devices_desc, device_types_desc, words, threshold=0.70):
     try:
         return False, get_device_type(devices, devices_desc, device_types_desc, words, threshold)
     except:
@@ -172,7 +187,8 @@ def find_devices_in_room(rooms, words, threshold=0.65):
                 for alias_word in alias_words:
                     for word in words:
                         rate = Levenshtein.ratio(alias_word, word)
-                        alias_sum += 1 if rate > threshold else 0
+                        # alias_sum += 1 if rate > threshold else 0
+                        alias_sum += rate if rate > threshold else 0
                 if alias_sum > max_sum:
                     max_sum = alias_sum
                     max_len = current_len
