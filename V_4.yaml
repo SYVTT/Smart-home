@@ -128,7 +128,7 @@ functions:
       - przełącz
       - zmień stan
     placeholder: no
-    output: toggle {id}
+    output: xchg {id}
     default: true
 
 

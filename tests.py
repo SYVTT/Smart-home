@@ -1,5 +1,6 @@
 import yaml
 
+from bcolors import bcolors
 from wdsjn_function import parse_command
 
 test_cases = [
@@ -125,14 +126,16 @@ for (command, expected) in test_cases:
     except:
         total_wrong += 1
     if expected != result:
-        print('result = ' + str(result) + ' | expected = ' + expected)
+        print(bcolors.FAIL + 'result = ' + str(result) + ' | expected = ' + expected + bcolors.ENDC
+              + ' in sentence: ' + command)
         total_wrong += 1
     else:
-        print('result = expected = ' + expected)
+        print(bcolors.OKGREEN + 'result = expected = ' + expected + bcolors.ENDC
+              + ' in sentence: ' + command)
         total_correct += 1
 
 print('\n')
 print('total = ' + str(len(test_cases)))
-print('total correct = ' + str(total_correct))
-print('total wrong = ' + str(total_wrong))
+print(bcolors.OKGREEN + 'total correct = ' + str(total_correct) + bcolors.ENDC)
+print(bcolors.FAIL + 'total wrong = ' + str(total_wrong) + bcolors.ENDC)
 
