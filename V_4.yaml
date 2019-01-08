@@ -70,12 +70,14 @@ functions:
     aliases:
       - podgłośnij
       - zwiększ głośność
+      - głośniej
     placeholder: no
     output: vol_up {id}
   SET_VOLUME_DOWN:
     aliases:
       - ścisz
       - zmniejsz głośność
+      - ciszej
     placeholder: no
     output: vol_down {id}
   SET_COLD:
@@ -102,6 +104,7 @@ functions:
       - do dołu
       - w dół
       - opuść
+      - zasłoń
     placeholder: no
     output: down {id}
   STOP:
@@ -160,6 +163,7 @@ device_types:
       - SET_VOLUME
       - SET_VOLUME_UP
       - SET_VOLUME_DOWN
+      - TOGGLE
     aliases:
       - radio
       - radioodbiornik
@@ -174,6 +178,7 @@ device_types:
       - SET_VOLUME
       - SET_VOLUME_UP
       - SET_VOLUME_DOWN
+      - TOGGLE
     aliases:
       - telewizor
       - telewizja
@@ -183,6 +188,7 @@ device_types:
     functions:
       - 'ON'
       - 'OFF'
+      - TOGGLE
     aliases:
       - komputer
       - komp
@@ -191,6 +197,7 @@ device_types:
     functions:
       - 'ON'
       - 'OFF'
+      - TOGGLE
     aliases:
       - monitor
       - ekran
@@ -201,6 +208,7 @@ device_types:
       - 'OFF'
       - FAST
       - SLOW
+      - TOGGLE
     aliases:
       - wentylator
   HOOD:
@@ -210,6 +218,7 @@ device_types:
       - 'OFF'
       - FAST
       - SLOW
+      - TOGGLE
     aliases:
       - wentylator okapu
       - okap
@@ -218,6 +227,7 @@ device_types:
     functions:
       - 'ON'
       - 'OFF'
+      - TOGGLE
     aliases:
       - ogrzewanie
       - dmuchawa
@@ -236,9 +246,12 @@ device_types:
       - 'ON'
       - 'OFF'
       - SET_ALARM
+      - TOGGLE
     aliases:
       - budzik
       - zegarek
+      - budzenie
+      - pobudka
 
 
 devices:
@@ -352,6 +365,7 @@ devices:
     id: C2
     aliases:
       - lustrem
+      - lustro
   C3:
     type: VENTILATOR
     id: C3
@@ -373,6 +387,7 @@ devices:
       - górne
       - główne
       - na suficie
+    default: true
   D2:
     type: LIGHT
     id: D2
@@ -413,21 +428,25 @@ devices:
       - górne
       - główne
       - na suficie
+    default: true
   E2:
     type: LIGHT
     id: E2
     aliases:
       - nad szafkami
+      - nad szafki
   E3:
     type: LIGHT
     id: E3
     aliases:
       - pod szafkami
+      - pod szafki
   E4:
     type: LIGHT
     id: E4
     aliases:
       - okapu
+      - okap
   E5:
     type: HOOD
     id: E5
@@ -440,7 +459,6 @@ devices:
     aliases:
       - całe
       - wszystkie
-    default: true
 
 
 rooms:
