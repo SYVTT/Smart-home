@@ -49,6 +49,7 @@ test_cases = [
     ('ścisz telewizor na poddaszu', ('vol_down A10')),
     ('oświetlenie za telewizorem na poddaszu Załącz', ('on A11')),
     ('Załącz oświetlenie za telewizorem na poddaszu', ('on A11')),
+    # todo merge get_device_type with get_device
     ('poddasze telewizor oświetlenie Załącz', ('on A11')),
     ('oświetlenie za telewizorem na poddaszu wyłącz', ('off A11')),
     ('całe oświetlenie na poddaszu wyłącz', ('off A12')),
@@ -87,7 +88,6 @@ test_cases = [
     ('Ustaw kanał 11 telewizor sypialni', ('set B5 ch 11')),
     ('telewizor w sypialni kanał 12', ('set B5 ch 12')),
     ('sypialnia Załącz telewizor w sypialni', ('on B5')),
-    # todo similar command
     ('sypialnia załącza oświetlenie za telewizorem', ('on B6', 'error')),
     ('sypialnia Wyłącz oświetlenie za telewizorem', ('off B6')),
     ('sypialnia Załącz oświetlenie za telewizorem', ('on B6')),
@@ -99,7 +99,6 @@ test_cases = [
     ('Wyłącz budzik w sypialni', ('off B8')),
     ('Załącz budzik', ('on B8', 'error')),
     ('Wyłącz budzik', ('off B8', 'error')),
-    # todo should be room or add to whole home in yaml . -> w sypialni
     ('Ustaw budzik na 6:00 w sypialni', ('set B8 time 6:00')),
     ('Ustaw budzik na 5:30 w sypialni', ('set B8 time 5:30')),
     # todo why is this working?
@@ -195,12 +194,16 @@ test_cases = [
     ('Wyłącz oświetlenie górne w kuchni', ('off E1')),
     ('Załącz światło w kuchni', ('on E1')),
     ('Wyłącz światło w kuchni', ('off E1')),
-    ('Załącz oświetlenie nad szafkami', ('on E2')),
-    ('Wyłącz oświetlenie nad szafkami', ('off E2')),
+    # todo there is no room 'on E2' -> 'error'
+    ('Załącz oświetlenie nad szafkami', ('error')),
+    # todo there is no room 'off E2' -> 'error'
+    ('Wyłącz oświetlenie nad szafkami', ('error')),
     ('Ustaw oświetlenie górne nad szafkami w kuchni na 50%', ('set E2 bright 50')),
+    # TODO default function
     ('kuchnia oświetlenie górne nad szafkami 5%', ('set E2 bright 5')),
     ('kuchnia oświetlenie nad szafkami', ('xchg E2')),
     ('kuchnia oświetlenie pod szafkami', ('xchg E3')),
+    # todo why there is xchg?
     ('Załóż oświetlenie pod szafkami w kuchni', ('error', 'on E3')),
     ('Wyłącz oświetlenie pod szafkami w kuchni', ('off E3')),
     ('kuchnia Załącz oświetlenie pod szafkami', ('on E3')),
