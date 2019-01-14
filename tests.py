@@ -20,8 +20,8 @@ test_cases = [
     ('wyłącz', 'error'),
     ('Załącz światło w kuchni', 'on E1'),
     ('Załącz oświetlenie okapu', 'error'),
-    # if this should be toggle E4 or rather error?
-    ('Załóż oświetlenie okapu w kuchni', 'xchg E4'),
+    # if this should be on/xchg E4 or rather error?
+    ('Załóż oświetlenie okapu w kuchni', 'on E4'),
     ('Wyłącz oświetlenie w kuchni', 'off E1'),
     ('Załącz oświetlenie górne w salonie', 'on D1'),
     ('Załącz lampę lewą w salonie', 'on D2'),
