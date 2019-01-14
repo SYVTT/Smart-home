@@ -1,16 +1,17 @@
 test_cases = [
     ('Załącz oświetlenie górne na poddaszu w sekcji pierwszej', ('on A1')),
     ('Wyłącz oświetlenie górne na poddaszu w sekcji pierwszej', ('off A1')),
+    # todo DF
     ('oświetlenie górne na poddaszu w sekcji pierwszej', ('xchg A1')),
     ('poddasze sekcja pierwsza oświetlenie górne Załącz', ('on A1')),
     ('oświetlenie biurka na poddaszu Załącz', ('on A2')),
     ('poddasze oświetlenie biurka Załącz', ('on A2')),
     ('Wyłącz oświetlenie biurka na poddaszu', ('off A2')),
+    # todo DF
     ('oświetlenie biurka na poddaszu', ('xchg A2')),
     ('Załącz radio na poddaszu', ('on A3')),
     ('Wyłącz radio na poddaszu', ('off A3')),
     ('poddasze radio Załącz', ('on A3')),
-    # todo handling words
     ('Załącz radio na poddaszu kanał trzeci', ('set A3 ch 3')),
     ('radio na poddaszu Ustaw głośność na 5', ('set A3 vol 5')),
     ('radio na poddaszu głośniej', ('vol_up A3')),
@@ -27,19 +28,23 @@ test_cases = [
     ('Wyłącz monitor na poddaszu', ('off A5')),
     ('Załącz oświetlenie górne w sekcji drugiej na poddaszu', ('on A6')),
     ('Wyłącz oświetlenie górne w sekcji drugiej na poddaszu', ('off A6')),
+    # todo DF
     ('oświetlenie górne w sekcji drugiej na poddaszu', ('xchg A6')),
     ('Załącz lampy nad Oławą na poddaszu', ('on A7', 'error')),
     ('Wyłącz lampę nad ławą na poddaszu', ('off A7')),
     ('lampa nad Oławą', ('xchg A7', 'error')),
+    # todo DF
     ('lampa lewa na poddaszu', ('xchg A8')),
     ('Załącz lampę lewą na poddaszu', ('on A8')),
     ('Wyłącz lampę lewą na poddaszu', ('off A8')),
+    # todo DF
     ('lampa prawa na poddaszu', ('xchg A9')),
     # 'on A9' -> 'on A8'
     ('Załącz lampę lewą na poddaszu', ('on A8')),
     # 'off A9' -> 'off A8'
     ('Wyłącz lampę lewą na poddaszu', ('off A8')),
     ('Załącz telewizor na poddaszu', ('on A10')),
+    # todo DF
     ('telewizor na poddaszu', ('xchg A10')),
     ('telewizor na poddaszu kanał piąty', ('set A10 ch 5')),
     ('telewizor na poddaszu Ustaw kanał trzeci', ('set A10 ch 3')),
@@ -49,11 +54,12 @@ test_cases = [
     ('ścisz telewizor na poddaszu', ('vol_down A10')),
     ('oświetlenie za telewizorem na poddaszu Załącz', ('on A11')),
     ('Załącz oświetlenie za telewizorem na poddaszu', ('on A11')),
-    # todo merge get_device_type with get_device
+    # todo DN merge get_device_type with get_device
     ('poddasze telewizor oświetlenie Załącz', ('on A11')),
     ('oświetlenie za telewizorem na poddaszu wyłącz', ('off A11')),
     ('całe oświetlenie na poddaszu wyłącz', ('off A12')),
     ('całe oświetlenie na poddaszu Załącz', ('on A12')),
+    # todo DF don't know why
     ('całe oświetlenie na poddaszu', ('xchg A12')),
     ('Załącz oświetlenie górne w sypialni', ('on B1')),
     ('Wyłącz oświetlenie górne w sypialni', ('off B1')),
@@ -70,7 +76,7 @@ test_cases = [
     ('Wyłącz lampę lewą w sypialni', ('off B2')),
     ('Załącz lampę prawą w sypialni', ('on B3')),
     ('Wyłącz lampę prawą w sypialni', ('off B3')),
-    # todo why B2? 'on B2' -> 'on B4'
+    # why B2? 'on B2' -> 'on B4'
     ('Załącz lampy w sypialni', ('error', 'on B4')),
     ('Wyłącz lampę w sypialni', ('off B4')),
     ('sypialnia salon światło', ('xchg B1')),
@@ -101,14 +107,14 @@ test_cases = [
     ('Wyłącz budzik', ('off B8', 'error')),
     ('Ustaw budzik na 6:00 w sypialni', ('set B8 time 6:00')),
     ('Ustaw budzik na 5:30 w sypialni', ('set B8 time 5:30')),
-    # todo why is this working?
-    ('Ustaw budzik na godzinę 0', ('set B8 time 0:00', 'error')),
-    # todo there is no device, there is no room
+    # there is no room
+    ('Ustaw budzik na godzinę 0 w sypialni', ('set B8 time 0:00')),
+    # there is no device, there is no room
     ('Ustaw budzenie na 7:00 rano sypialnia', ('set B8 time 7:00')),
     ('Ustaw budzenie na', ('error')),
-    # todo there is no room
+    # there is no room
     ('Ustaw budzenie na 7:00 rano sypialnia', ('set B8 time 7:00')),
-    # todo there is no room
+    # there is no room
     ('Ustaw budzenie na 20:00 sypialnia', ('set B8 time 20:00')),
     ('Załącz oświetlenie w łazience', ('on C1')),
     ('Załącz oświetlenie górne w łazience', ('on C1')),
@@ -131,7 +137,7 @@ test_cases = [
     ('łazienka Załącz wentylator', ('on C3')),
     ('łazienka wyłączyłem ty lator', ('error')),
     ('łazienka Wyłącz wentylator', ('off C3')),
-    # todo why there is xchg?
+    # todo DF why there is xchg?
     ('Załóż dmuchawę w łazience', ('error', 'on C4')),
     ('Załącz dmuchawy w łazience', ('on C4', 'error')),
     ('Załącz dmuchawę w łazience', ('on C4')),
@@ -158,13 +164,9 @@ test_cases = [
     ('salon lampa prawa', ('xchg D3')),
     ('salon Załącz prawą lampę', ('on D3')),
     ('salon Załącz lampę prawą', ('on D3')),
-    # todo change colors to english
     ('lampa lewa w salonie kolor niebieski', ('set D2 color blue')),
-    # todo change colors to english
     ('lampa prawa w salonie kolor czerwony', ('set D3 color red')),
-    # todo change colors to english
     ('salon lampa lewa kolor czerwony', ('set D2 color red')),
-    # todo change colors to english
     ('salon lampa lewa kolor zielony', ('set D2 color green')),
     ('Wyłącz całe oświetlenie w salonie', ('off D4')),
     ('Załącz całe oświetlenie w salonie', ('on D4')),
@@ -194,22 +196,24 @@ test_cases = [
     ('Wyłącz oświetlenie górne w kuchni', ('off E1')),
     ('Załącz światło w kuchni', ('on E1')),
     ('Wyłącz światło w kuchni', ('off E1')),
-    # todo there is no room 'on E2' -> 'error'
+    # there is no room 'on E2' -> 'error'
     ('Załącz oświetlenie nad szafkami', ('error')),
-    # todo there is no room 'off E2' -> 'error'
+    # there is no room 'off E2' -> 'error'
     ('Wyłącz oświetlenie nad szafkami', ('error')),
     ('Ustaw oświetlenie górne nad szafkami w kuchni na 50%', ('set E2 bright 50')),
-    # TODO default function
+    # todo DF default function
     ('kuchnia oświetlenie górne nad szafkami 5%', ('set E2 bright 5')),
     ('kuchnia oświetlenie nad szafkami', ('xchg E2')),
     ('kuchnia oświetlenie pod szafkami', ('xchg E3')),
-    # todo why there is xchg?
+    # todo DF why there is xchg?
     ('Załóż oświetlenie pod szafkami w kuchni', ('error', 'on E3')),
     ('Wyłącz oświetlenie pod szafkami w kuchni', ('off E3')),
     ('kuchnia Załącz oświetlenie pod szafkami', ('on E3')),
     ('kuchnia Wyłącz oświetlenie pod szafkami', ('off E3')),
     ('kuchnia oświetlenie pod szafkami', ('xchg E3')),
+    # todo DF
     ('kuchnia oświetlenie nad szafkami 50%', ('set E2 bright 50')),
+    # todo DF
     ('kuchnia oświetlenie nad szafkami 10%', ('set E2 bright 10')),
     ('kuchnia oświetlenie nad szafkami Ustaw na 20%', ('set E2 bright 20')),
     ('Załącz oświetlenie okapu w kuchni', ('on E4')),

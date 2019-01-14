@@ -28,7 +28,24 @@ functions:
       - ustawia kolor
       - ustawia kolor
     placeholder: yes
-    regex: niebieski|czerwony|zielony|żółty
+#    regex: niebieski|czerwony|zielony|żółty
+    regex:
+      Blue:
+        value: niebieski
+        identity: false
+        translation: blue
+      Red:
+        value: czerwony
+        identity: false
+        translation: red
+      Green:
+        value: zielony
+        identity: false
+        translation: green
+      Yellow:
+        value: żółty
+        identity: false
+        translation: yellow
     output: set {id} color {placeholder}
   SET:
     aliases:
@@ -45,7 +62,27 @@ functions:
       - zmienia kanał
       - ustawia kanał
     placeholder: yes
-    regex: \d+
+#    regex: \d+
+    regex:
+      Number:
+        value: \d+
+        identity: true
+      First:
+        value: pierwszy
+        translation: 1
+      Second:
+        value: drugi
+        translation: 2
+      Third:
+        value: trzeci
+        translation: 3
+      Fourth:
+        value: czwarty
+        translation: 4
+      Fifth:
+        value: piąty
+        translation: 5
+      # todo add to 32 (check how this working for 2x/3x)
     output: set {id} ch {placeholder}
   FAST:
     aliases:
@@ -83,7 +120,11 @@ functions:
       - ustawia głośność
       - zmienia głośność
     placeholder: yes
-    regex: \d+
+#    regex: \d+
+    regex:
+      Number:
+        value: \d+
+        identity: true
     output: set {id} vol {placeholder}
   SET_VOLUME_UP:
     aliases:
@@ -150,7 +191,18 @@ functions:
       - ustaw alarm na
       - ustawia alarm na
     placeholder: yes
-    regex: \d\d:\d\d|\d:\d\d
+#    regex: \d\d:\d\d|\d:\d\d
+    regex:
+      Full_Hour:
+        value: \d\d:\d\d
+        identity: true
+      Part_Hour:
+        value: \d:\d\d
+        identity: true
+      Zero:
+        value: 0
+        translation: 0:00
+      # todo add hours to 24
     output: set {id} time {placeholder}
   SET_BRIGHTNESS:
     aliases:
@@ -159,7 +211,11 @@ functions:
       - ustaw na
       - ustawia na
     placeholder: yes
-    regex: \d+
+#    regex: \d+
+    regex:
+      Number:
+        value: \d+
+        identity: true
     output: set {id} bright {placeholder}
   TOGGLE:
     aliases:

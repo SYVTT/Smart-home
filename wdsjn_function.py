@@ -33,8 +33,20 @@ def parse_command(command, desc):
         result = output.replace('{id}', device_id)
         if 'placeholder' in functions_desc[func] and functions_desc[func]['placeholder']:
             regex = functions_desc[func]['regex']
-            placeholder = re.findall(regex, command)[0]
-            result = result.replace('{placeholder}', placeholder)
+            for reg in regex:
+                reg_value = regex[reg]['value']
+                reg_result = re.findall(str(reg_value), command)
+                if len(reg_result) > 0:
+                    placeholder = reg_result[0]
+                    if ('identity' not in regex[reg] or not regex[reg]['identity']) \
+                            and 'translation' in regex[reg]:
+                        placeholder = regex[reg]['translation']
+                    result = result.replace('{placeholder}', str(placeholder))
+                    break
+
+        # return 'error'
+            # placeholder = re.findall(regex, command)[0]
+            # result = result.replace('{placeholder}', placeholder)
     except:
         # return 'incorrect yaml structure - placeholder'
         return 'error'
