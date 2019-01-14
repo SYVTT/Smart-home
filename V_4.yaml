@@ -23,8 +23,8 @@ functions:
     output: off {id}
   SET_COLOR:
     aliases:
-      - ustaw kolor na
-      - zmień kolor na
+      - ustaw kolor
+      - zmień kolor
       - ustawia kolor
       - ustawia kolor
     placeholder: yes
@@ -57,8 +57,10 @@ functions:
     output: set {id}
   SET_CHANNEL:
     aliases:
-      - zmień kanał na
-      - ustaw kanał na
+      - kanał
+      - załącz kanał
+      - zmień kanał
+      - ustaw kanał
       - zmienia kanał
       - ustawia kanał
     placeholder: yes
@@ -97,26 +99,26 @@ functions:
     output: slow {id}
   SET_CHANNEL_NEXT:
     aliases:
-      - zmień kanał na następny
-      - ustaw kanał na następny
-      - zmiania kanał na następny
-      - ustawia kanał na następny
+      - zmień kanał następny
+      - ustaw kanał następny
+      - zmiania kanał następny
+      - ustawia kanał następny
       - następny
     placeholder: no
     output: set {id} ch next
   SET_CHANNEL_PREV:
     aliases:
-      - zmień kanał na poprzedni
-      - ustaw kanał na poprzedni
-      - ustawia kanał na poprzedni
-      - zmienia kanał na poprzedni
+      - zmień kanał poprzedni
+      - ustaw kanał poprzedni
+      - ustawia kanał poprzedni
+      - zmienia kanał poprzedni
       - poprzedni
     placeholder: no
     output: set {id} ch prev
   SET_VOLUME:
     aliases:
-      - ustaw głośność na
-      - zmień głośność na
+      - ustaw głośność
+      - zmień głośność
       - ustawia głośność
       - zmienia głośność
     placeholder: yes
@@ -188,8 +190,8 @@ functions:
     output: stop {id}
   SET_ALARM:
     aliases:
-      - ustaw alarm na
-      - ustawia alarm na
+      - ustaw alarm
+      - ustawia alarm
     placeholder: yes
 #    regex: \d\d:\d\d|\d:\d\d
     regex:
@@ -206,10 +208,10 @@ functions:
     output: set {id} time {placeholder}
   SET_BRIGHTNESS:
     aliases:
-      - ustaw jasność na
+      - ustaw jasność
       - ustawia jasność
-      - ustaw na
-      - ustawia na
+      - ustaw
+      - ustawia
     placeholder: yes
 #    regex: \d+
     regex:
