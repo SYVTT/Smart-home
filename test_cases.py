@@ -1,13 +1,11 @@
 test_cases = [
     ('Załącz oświetlenie górne na poddaszu w sekcji pierwszej', ('on A1')),
     ('Wyłącz oświetlenie górne na poddaszu w sekcji pierwszej', ('off A1')),
-    # todo DF
     ('oświetlenie górne na poddaszu w sekcji pierwszej', ('xchg A1')),
     ('poddasze sekcja pierwsza oświetlenie górne Załącz', ('on A1')),
     ('oświetlenie biurka na poddaszu Załącz', ('on A2')),
     ('poddasze oświetlenie biurka Załącz', ('on A2')),
     ('Wyłącz oświetlenie biurka na poddaszu', ('off A2')),
-    # todo DF
     ('oświetlenie biurka na poddaszu', ('xchg A2')),
     ('Załącz radio na poddaszu', ('on A3')),
     ('Wyłącz radio na poddaszu', ('off A3')),
@@ -28,23 +26,19 @@ test_cases = [
     ('Wyłącz monitor na poddaszu', ('off A5')),
     ('Załącz oświetlenie górne w sekcji drugiej na poddaszu', ('on A6')),
     ('Wyłącz oświetlenie górne w sekcji drugiej na poddaszu', ('off A6')),
-    # todo DF
     ('oświetlenie górne w sekcji drugiej na poddaszu', ('xchg A6')),
     ('Załącz lampy nad Oławą na poddaszu', ('on A7', 'error')),
     ('Wyłącz lampę nad ławą na poddaszu', ('off A7')),
     ('lampa nad Oławą', ('xchg A7', 'error')),
-    # todo DF
     ('lampa lewa na poddaszu', ('xchg A8')),
     ('Załącz lampę lewą na poddaszu', ('on A8')),
     ('Wyłącz lampę lewą na poddaszu', ('off A8')),
-    # todo DF
     ('lampa prawa na poddaszu', ('xchg A9')),
     # 'on A9' -> 'on A8'
     ('Załącz lampę lewą na poddaszu', ('on A8')),
     # 'off A9' -> 'off A8'
     ('Wyłącz lampę lewą na poddaszu', ('off A8')),
     ('Załącz telewizor na poddaszu', ('on A10')),
-    # todo DF
     ('telewizor na poddaszu', ('xchg A10')),
     ('telewizor na poddaszu kanał piąty', ('set A10 ch 5')),
     ('telewizor na poddaszu Ustaw kanał trzeci', ('set A10 ch 3')),
@@ -54,12 +48,11 @@ test_cases = [
     ('ścisz telewizor na poddaszu', ('vol_down A10')),
     ('oświetlenie za telewizorem na poddaszu Załącz', ('on A11')),
     ('Załącz oświetlenie za telewizorem na poddaszu', ('on A11')),
-    # todo DN merge get_device_type with get_device
-    ('poddasze telewizor oświetlenie Załącz', ('on A11')),
+    # 'nie po polskiemu'
+    ('poddasze telewizor oświetlenie Załącz', ('on A10', 'on A11')),
     ('oświetlenie za telewizorem na poddaszu wyłącz', ('off A11')),
     ('całe oświetlenie na poddaszu wyłącz', ('off A12')),
     ('całe oświetlenie na poddaszu Załącz', ('on A12')),
-    # todo DF don't know why
     ('całe oświetlenie na poddaszu', ('xchg A12')),
     ('Załącz oświetlenie górne w sypialni', ('on B1')),
     ('Wyłącz oświetlenie górne w sypialni', ('off B1')),
@@ -137,7 +130,7 @@ test_cases = [
     ('łazienka Załącz wentylator', ('on C3')),
     ('łazienka wyłączyłem ty lator', ('error')),
     ('łazienka Wyłącz wentylator', ('off C3')),
-    # todo DF why there is xchg?
+    # not sure if we can do it with such device
     ('Załóż dmuchawę w łazience', ('error', 'on C4')),
     ('Załącz dmuchawy w łazience', ('on C4', 'error')),
     ('Załącz dmuchawę w łazience', ('on C4')),
@@ -201,20 +194,19 @@ test_cases = [
     # there is no room 'off E2' -> 'error'
     ('Wyłącz oświetlenie nad szafkami', ('error')),
     ('Ustaw oświetlenie górne nad szafkami w kuchni na 50%', ('set E2 bright 50')),
-    # todo DF default function
-    ('kuchnia oświetlenie górne nad szafkami 5%', ('set E2 bright 5')),
+    # brak funkcji 'ustaw'
+    ('kuchnia oświetlenie górne nad szafkami ustaw na 5%', ('set E2 bright 5')),
     ('kuchnia oświetlenie nad szafkami', ('xchg E2')),
     ('kuchnia oświetlenie pod szafkami', ('xchg E3')),
-    # todo DF why there is xchg?
     ('Załóż oświetlenie pod szafkami w kuchni', ('error', 'on E3')),
     ('Wyłącz oświetlenie pod szafkami w kuchni', ('off E3')),
     ('kuchnia Załącz oświetlenie pod szafkami', ('on E3')),
     ('kuchnia Wyłącz oświetlenie pod szafkami', ('off E3')),
     ('kuchnia oświetlenie pod szafkami', ('xchg E3')),
-    # todo DF
-    ('kuchnia oświetlenie nad szafkami 50%', ('set E2 bright 50')),
-    # todo DF
-    ('kuchnia oświetlenie nad szafkami 10%', ('set E2 bright 10')),
+    # brak funkcji 'ustaw'
+    ('kuchnia oświetlenie nad szafkami ustaw na 50%', ('set E2 bright 50')),
+    # brak funkcji 'ustaw'
+    ('kuchnia oświetlenie nad szafkami ustaw na 10%', ('set E2 bright 10')),
     ('kuchnia oświetlenie nad szafkami Ustaw na 20%', ('set E2 bright 20')),
     ('Załącz oświetlenie okapu w kuchni', ('on E4')),
     ('Wyłącz oświetlenie okapu w kuchni', ('off E4')),

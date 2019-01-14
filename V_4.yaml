@@ -11,6 +11,8 @@ functions:
       - włącza
       - zapala
       - uruchamia
+      - załóż
+      - zakłada
     placeholder: no
     output: on {id}
   'OFF':
@@ -400,6 +402,7 @@ devices:
     id: A11
     aliases:
       - za telewizorem
+      - telewiora
   A12:
     type: LIGHT
     id: A12
