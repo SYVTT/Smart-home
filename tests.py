@@ -9,7 +9,7 @@ test_cases = [
     ('włącz komputer na poddaszu', 'on A4'),
     ('w sypialni lewą lampę załącz', 'on B2'),
     ('toaleta uruchom wentylator', 'on C3'),
-    ('zgaś światło w salonie', 'off D4'),
+    ('zgaś światło w salonie', 'off D1'),
     ('wyłącz wentlator w kuchni', 'off E6'),
     ('włącz całe oświetlenie w kuchni', 'on E7'),
     ('ustaw budzik w sypialni na 13:00', 'set B8 time 13:00'),
@@ -18,16 +18,16 @@ test_cases = [
 
     ('Załącz', 'error'),
     ('wyłącz', 'error'),
-    ('Załącz światło w kuchni', 'on E7'),
+    ('Załącz światło w kuchni', 'on E1'),
     ('Załącz oświetlenie okapu', 'error'),
     # if this should be toggle E4 or rather error?
-    ('Załóż oświetlenie okapu w kuchni', 'toggle E4'),
-    ('Wyłącz oświetlenie w kuchni', 'off E7'),
+    ('Załóż oświetlenie okapu w kuchni', 'xchg E4'),
+    ('Wyłącz oświetlenie w kuchni', 'off E1'),
     ('Załącz oświetlenie górne w salonie', 'on D1'),
     ('Załącz lampę lewą w salonie', 'on D2'),
     ('salon lampa prawa Załącz co wy na to', 'on D3'),
     ('Załącz lampę prawą w salonie', 'on D3'),
-    ('Wyłącz oświetlenie w salonie', 'off D4'),
+    ('Wyłącz oświetlenie w salonie', 'off D1'),
     ('Załącz oświetlenie górne w kuchni', 'on E1'),
     ('kuchnia oświetlenie okapu Załącz', 'on E4'),
     ('Załącz wentylator w kuchni', 'on E6'),
@@ -58,7 +58,7 @@ test_cases = [
     ('Załącz radio na poddaszu', 'on A3'),
     ('Wyłącz radio na poddaszu', 'off A3'),
     # wrong format (trzeci -> 3)
-    ('radio na poddaszu kanał trzeci', 'error'),
+    ('radio na poddaszu kanał trzeci', 'set A3 ch 3'),
     ('radio na poddaszu Kanał 3', 'set A3 ch 3'),
     ('Załącz oświetlenie za telewizorem na poddaszu', 'on A11'),
     ('Załącz oświetlenie za telewizorem na poddaszu w sekcji drugiej', 'on A11'),
@@ -82,11 +82,11 @@ test_cases = [
     ('Załącz lampę za telewizorem w sypialni', 'on B6'),
     ('Załącz oświetlenie górne w salonie', 'on D1'),
     # todo change to toggle (trivial function)
-    ('lampa lewa w sypialni', 'toggle B2'),
+    ('lampa lewa w sypialni', 'xchg B2'),
     # color in polish?
-    ('salon lampa lewa kolor niebieski', 'set D2 color niebieski'),
+    ('salon lampa lewa kolor niebieski', 'set D2 color blue'),
     # turn on only one lamp
-    ('lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo', 'set B2 color czerwony'),
+    ('lampa lewa w sypialni kolor czerwonysypialnia lampa prawa kolor czerwo', 'set B2 color red'),
     ('Załącz budzik w sypialni', 'on B8'),
     # lack of function
     ('budzik w sypialni godzina 6:00 rano', 'error'),

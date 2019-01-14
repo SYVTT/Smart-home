@@ -341,7 +341,6 @@ device_types:
       - 'ON'
       - 'OFF'
       - SET_ALARM
-      - TOGGLE
     aliases:
       - budzik
       - zegarek
