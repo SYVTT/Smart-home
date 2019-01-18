@@ -30,7 +30,6 @@ functions:
       - ustawia kolor
       - ustawia kolor
     placeholder: yes
-#    regex: niebieski|czerwony|zielony|żółty
     regex:
       Blue:
         value: niebieski

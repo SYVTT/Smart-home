@@ -14,19 +14,15 @@ def parse_command(command, desc):
     error, devices = find_devices_in_room_catch(rooms_desc, words)
     if error:
         return devices
-    # print('devices = ' + str(devices))
     error, device_type = get_device_type_catch(devices, devices_desc, device_types_desc, words)
     if error:
         return device_type
-    # print('device_type = ' + str(device_type))
     error, device_id = get_device_id_catch(devices, devices_desc, device_type, words)
     if error:
         return device_id
-    # print('device_id = ' + str(device_id))
     error, func = get_fun_catch(device_type, device_types_desc, functions_desc, words)
     if error:
         return func
-    # print('func = ' + str(func))
 
     try:
         output = functions_desc[func]['output']
@@ -43,12 +39,7 @@ def parse_command(command, desc):
                         placeholder = regex[reg]['translation']
                     result = result.replace('{placeholder}', str(placeholder))
                     break
-
-        # return 'error'
-            # placeholder = re.findall(regex, command)[0]
-            # result = result.replace('{placeholder}', placeholder)
     except:
-        # return 'incorrect yaml structure - placeholder'
         return 'error'
 
     return result
@@ -72,7 +63,6 @@ def get_fun(device_type, device_types_desc, functions_desc, words, threshold=0.9
             for alias_word in alias_words:
                 for word in words:
                     rate = Levenshtein.ratio(alias_word, word)
-                    # alias_sum += 1 if rate > threshold else 0
                     alias_sum += rate if rate > threshold else 0
             if alias_sum > max_sum:
                 max_sum = alias_sum
@@ -88,7 +78,6 @@ def get_fun_catch(device_type, device_types_desc, functions_desc, words, thresho
     try:
         return False, get_fun(device_type, device_types_desc, functions_desc, words, threshold)
     except:
-        # return True, 'can not find function'
         return True, 'error'
 
 
@@ -113,32 +102,18 @@ def get_device_id(devices, devices_desc, device_type, words, threshold=0.65):
                             alias_sum += rate if rate > threshold else 0
                     if alias_rate < current_len:
                         alias_sum = 0
-                    # print('0 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                     if alias_sum > max_sum:
-                        # print('1 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                         max_sum = alias_sum
                         max_len = current_len
                         max_id = device
                     elif alias_sum == max_sum and current_len < max_len:
-                        # print('2 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                         max_len = current_len
                         max_id = device
                     elif alias_sum == max_sum and 'default' in device_desc and device_desc['default']:
-                        # print('3 ' + alias + ' ' + str(alias_sum) + ' ' + device)
                         max_sum = 0
                         max_len = 0
                         max_id = device
-                # todo if this is necessary?
-                # if max_id is None or ('default' in device_desc and device_desc['default']):
-                #     max_id = device
-                #     max_sum = 0
-                #     max_len = 0
-            # elif max_id is None or ('default' in device_desc and device_desc['default']):
-            # todo if this is necessary?
-            # if max_id is None or ('default' in device_desc and device_desc['default']):
-            # if max_id is None and ('default' in device_desc and device_desc['default']):
             if max_id is None:
-                # print('4 ' + device)
                 max_id = device
                 max_sum = 0
                 max_len = 0
@@ -150,7 +125,6 @@ def get_device_id_catch(devices, devices_desc, device_type, words, threshold=0.6
     try:
         return False, get_device_id(devices, devices_desc, device_type, words, threshold)
     except:
-        # return True, 'can not find device'
         return True, 'error'
 
 
@@ -169,7 +143,6 @@ def get_device_type(devices, devices_desc, device_types_desc, words, threshold):
             for alias_word in alias_words:
                 for word in words:
                     rate = Levenshtein.ratio(alias_word, word)
-                    # alias_sum += 1 if rate > threshold else 0
                     alias_sum += rate if rate > threshold else 0
             if alias_sum > max_sum:
                 max_sum = alias_sum
@@ -186,7 +159,6 @@ def get_device_type_catch(devices, devices_desc, device_types_desc, words, thres
     try:
         return False, get_device_type(devices, devices_desc, device_types_desc, words, threshold)
     except:
-        # return True, 'can not find device type'
         return True, 'error'
 
 
@@ -203,7 +175,6 @@ def find_devices_in_room(rooms, words, threshold=0.65):
                 for alias_word in alias_words:
                     for word in words:
                         rate = Levenshtein.ratio(alias_word, word)
-                        # alias_sum += 1 if rate > threshold else 0
                         alias_sum += rate if rate > threshold else 0
                 if alias_sum > max_sum:
                     max_sum = alias_sum
@@ -219,5 +190,4 @@ def find_devices_in_room_catch(rooms, words, threshold=0.65):
     try:
         return False, find_devices_in_room(rooms, words, threshold)
     except:
-        # return True, 'can not find room'
         return True, 'error'

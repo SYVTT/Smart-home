@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 COMMAND = 'Tekst polecenia'
 EXPECTED = 'oczekiwana komenda'
@@ -6,6 +7,9 @@ ALTERNATIVE = 'alternatyna komenda'
 NAN = 'nan'
 
 if __name__ == "__main__":
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
     input_file = r'data/dane-testowe.xls'
     output_file = r'output/test_cases.txt'
     df = pd.read_excel(input_file, sheet_name="dane")
